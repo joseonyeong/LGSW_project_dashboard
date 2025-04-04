@@ -1,0 +1,9 @@
+### 주식차트 대쉬보드 만들기
+- 오픈 소스 : 웹개발 (streamlit, gradio)
+- 툴 : tableau, powerBI, looker studio (google analytics) & appscript (게임계열)
+
+시각화 라이브러리
+- 공부방법
+ maplotlib + seaborn ; 시각화 차트를 이미지로 사용 목적 (보고서 목적)
+ plotly ; 시각화 차트를 개발용으로 사용 목적
+-> 둘 중 하나에 집중
