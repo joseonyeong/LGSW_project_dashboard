@@ -3,6 +3,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 def main():
     value1 = st.sidebar.slider('Select a Value object notation', 0, 100)
+#    value1 = st.sidebar.slider('Select a Value object notation', 0, 100)
+#   의 원래 위치는 가운데 레이어 자리
     st.sidebar.write(value1)
 
     with st.sidebar:

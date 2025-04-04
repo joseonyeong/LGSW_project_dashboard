@@ -13,9 +13,12 @@ def main():
     start_date = st.sidebar.date_input("Start date", value=pd.to_datetime('2023-01-01'))
     end_date = st.sidebar.date_input("End date", value=pd.to_datetime('today'))
 
+    ## yfinance 주식 데이터를 가져오는 코드
     data = yf.download(ticker, start=start_date, end=end_date)
+    data.columns = data.columns.droplevel(1)
+    ## radio 차트 선택
     chart_type = st.sidebar.radio("Select chart type", ("Candlestick", "Line"))
-
+    ## plotly graph objects 방식으로 차트 그리기
     candlestick = go.Candlestick(x=data.index, open=data['Open'], high=data['High'], low=data['Low'], close=data['Close'])
     line = go.Scatter(x=data.index, y=data['Close'], mode='lines', name='Close')
 
@@ -31,8 +34,9 @@ def main():
     # Plot the figure
     st.plotly_chart(fig)
     st.markdown("<hr>", unsafe_allow_html=True)
-
+    ## 데이터 프레임 출력
     num_row = st.sidebar.number_input('Number of Rows', min_value=1, max_value=len(data))
+    ## - 기호는 역으로 출력
     st.dataframe(data[-num_row:].reset_index().sort_index(ascending=False).set_index('Date'), use_container_width=True)
 
 
