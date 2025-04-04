@@ -34,6 +34,7 @@ def main():
     plot_type = st.radio(
         "어떤 스타일의 산점도를 보고 싶은가요?",
         ("Matplotlib", "Seaborn", "Plotly"))
+#    st.write("스타일: ", plot_type)
 
     if plot_type == "Matplotlib":
         plot_matplotlib()
